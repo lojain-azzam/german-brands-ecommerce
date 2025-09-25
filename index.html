@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🇩🇪 German Brands - Interactive PRD Showcase</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            perspective: 1000px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            padding: 60px 0;
+            transform-style: preserve-3d;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .logo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            transform: rotateY(0deg);
+            transition: transform 0.8s ease;
+        }
+
+        .logo:hover {
+            transform: rotateY(360deg) scale(1.1);
+        }
+
+        .title {
+            font-size: 4rem;
+            font-weight: 800;
+            color: white;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 12px 24px;
+            border-radius: 25px;
+            color: white;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+            transform: translateZ(0);
+        }
+
+        .badge:hover {
+            transform: translateY(-5px) scale(1.05);
+            background: rgba(255,255,255,0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            padding: 15px 25px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #ffd700;
+            transform: scale(1.1);
+        }
+
+        /* Sections */
+        .section {
+            margin: 80px 0;
+            padding: 60px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.2);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: white;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* User Personas */
+        .personas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .persona-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.3);
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .persona-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .persona-card:hover::before {
+            left: 100%;
+        }
+
+        .persona-card:hover {
+            transform: translateY(-15px) rotateX(10deg) rotateY(5deg);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+        }
+
+        .persona-avatar {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .persona-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .persona-quote {
+            color: rgba(255,255,255,0.9);
+            font-style: italic;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .persona-details {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Product Cards */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin: 40px 0;
+        }
+
+        .product-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 25px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            transform-style: preserve-3d;
+            transition: all 0.6s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            animation: rotate 4s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .product-card:hover::after {
+            opacity: 1;
+        }
+
+        .product-card:hover {
+            transform: translateY(-20px) rotateX(15deg) rotateY(10deg);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.3);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            box-shadow: 0 5px 15px rgba(255,107,107,0.4);
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+
+        .product-description {
+            color: #64748b;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .product-rating {
+            color: #f59e0b;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .product-price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #0d6efd;
+            margin-bottom: 20px;
+        }
+
+        .product-button {
+            background: linear-gradient(135deg, #0d6efd, #6610f2);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(13,110,253,0.3);
+        }
+
+        .product-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(13,110,253,0.4);
+        }
+
+        /* Feature Grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.3);
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .feature-description {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotateX(0deg); }
+            50% { transform: translateY(-20px) rotateX(5deg); }
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+            to { text-shadow: 0 10px 30px rgba(255,215,0,0.5), 0 0 40px rgba(255,215,0,0.3); }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 30px 20px;
+            }
+            
+            .nav {
+                position: relative;
+                top: 0;
+                right: 0;
+                margin: 20px 0;
+                text-align: center;
+            }
+            
+            .personas, .products, .features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Background Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            animation: float-particle 20s infinite linear;
+        }
+
+        @keyframes float-particle {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="#personas">Personas</a>
+        <a href="#products">Products</a>
+        <a href="#features">Features</a>
+    </nav>
+
+    <div class="container">
+        <!-- Header Section -->
+        <section id="home" class="header">
+            <img src="image/logo.JPG" alt="German Brands Logo" class="logo">
+            <h1 class="title">🇩🇪 German Brands</h1>
+            <p class="subtitle">Where Authentic German Beauty Meets Digital Innovation</p>
+            <div class="badges">
+                <span class="badge">Made in Germany</span>
+                <span class="badge">Django + React</span>
+                <span class="badge">Capstone Project</span>
+            </div>
+        </section>
+
+        <!-- User Personas -->
+        <section id="personas" class="section fade-in">
+            <h2 class="section-title">👥 Meet Our Community</h2>
+            <div class="personas">
+                <div class="persona-card">
+                    <div class="persona-avatar">🌍</div>
+                    <div class="persona-name">Sarah, 28</div>
+                    <div class="persona-quote">"I've heard amazing things about German skincare but can't find authentic products in my country!"</div>
+                    <div class="persona-details">📍 New York | 💰 $50-100/month</div>
+                </div>
+                <div class="persona-card">
+                    <div class="persona-avatar">🌱</div>
+                    <div class="persona-name">Emma, 32</div>
+                    <div class="persona-quote">"I only use natural, cruelty-free products. German brands are known for their organic standards!"</div>
+                    <div class="persona-details">📍 London | 💰 $80-150/month</div>
+                </div>
+                <div class="persona-card">
+                    <div class="persona-avatar">🇩🇪</div>
+                    <div class="persona-name">Klaus, 35</div>
+                    <div class="persona-quote">"I miss the quality German products from home. Need reliable shipping to Canada!"</div>
+                    <div class="persona-details">📍 Toronto | 💰 $60-120/month</div>
+                </div>
+                <div class="persona-card">
+                    <div class="persona-avatar">👨‍💼</div>
+                    <div class="persona-name">Michael</div>
+                    <div class="persona-quote">"I need to showcase new German arrivals and manage inventory efficiently."</div>
+                    <div class="persona-details">📍 Munich | 💰 Operations Focus</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Showcase -->
+        <section id="products" class="section fade-in">
+            <h2 class="section-title">🛒 Featured German Products</h2>
+            <div class="products">
+                <div class="product-card">
+                    <img src="image/product1.png" alt="Weleda Skin Food" class="product-image">
+                    <div class="product-badge">🇩🇪 Made in Germany</div>
+                    <h3 class="product-title">Weleda Skin Food</h3>
+                    <p class="product-description">Rich organic moisturizer • 150ml</p>
+                    <div class="product-rating">★★★★★ (214 reviews)</div>
+                    <div class="product-price">€12.95</div>
+                    <div style="color: #10b981; font-size: 0.9rem; margin-bottom: 20px;">✨ Organic Certified</div>
+                    <button class="product-button">🛒 Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="image/product2.png" alt="Dr. Hauschka Rose Cream" class="product-image">
+                    <div class="product-badge">🇩🇪 Made in Germany</div>
+                    <h3 class="product-title">Dr. Hauschka Rose Cream</h3>
+                    <p class="product-description">Anti-aging face cream • 30ml</p>
+                    <div class="product-rating">★★★★☆ (89 reviews)</div>
+                    <div class="product-price">€24.50</div>
+                    <div style="color: #10b981; font-size: 0.9rem; margin-bottom: 20px;">🌿 NATRUE Certified</div>
+                    <button class="product-button">🛒 Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="image/product3.png" alt="Lavera Natural Foundation" class="product-image">
+                    <div class="product-badge">🇩🇪 Made in Germany</div>
+                    <h3 class="product-title">Lavera Natural Foundation</h3>
+                    <p class="product-description">Organic makeup base • 30ml</p>
+                    <div class="product-rating">★★★★★ (156 reviews)</div>
+                    <div class="product-price">€18.90</div>
+                    <div style="color: #10b981; font-size: 0.9rem; margin-bottom: 20px;">🌿 Vegan Certified</div>
+                    <button class="product-button">🛒 Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section id="features" class="section fade-in">
+            <h2 class="section-title">🧩 Key Features</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🇩🇪</div>
+                    <div class="feature-title">Authentic German Catalog</div>
+                    <div class="feature-description">Every product verified "Made in Germany" with certification badges</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛒</div>
+                    <div class="feature-title">Smart Shopping</div>
+                    <div class="feature-description">AI-powered recommendations and wishlist management</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <div class="feature-title">Global Reach</div>
+                    <div class="feature-description">Worldwide shipping with multilingual support</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <div class="feature-title">Secure & Compliant</div>
+                    <div class="feature-description">GDPR-compliant with secure payment processing</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-title">Admin Dashboard</div>
+                    <div class="feature-description">Comprehensive management with analytics</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-title">Performance First</div>
+                    <div class="feature-description">Lightning-fast with modern tech stack</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision Section -->
+        <section class="section fade-in">
+            <h2 class="section-title">🚀 The Vision</h2>
+            <div style="text-align: center; color: white; font-size: 1.3rem; line-height: 1.8; max-width: 800px; margin: 0 auto;">
+                <p style="margin-bottom: 30px; font-style: italic;">
+                    "Imagine walking into the finest German apothecary, but it's in your pocket, available 24/7, and delivers worldwide. That's German Brands."
+                </p>
+                <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 20px; backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.2);">
+                    <h3 style="font-size: 2rem; margin-bottom: 20px;">🎨 Creative Concept</h3>
+                    <p style="font-size: 1.1rem;">
+                        "Bringing the precision, quality, and trust of German craftsmanship to the digital world of beauty commerce."
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.width = Math.random() * 4 + 2 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Scroll animations
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('.nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            handleScrollAnimations();
+            
+            // Add scroll event listener
+            window.addEventListener('scroll', handleScrollAnimations);
+            
+            // Add parallax effect to header
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const header = document.querySelector('.header');
+                const rate = scrolled * -0.5;
+                header.style.transform = `translateY(${rate}px)`;
+            });
+        });
+
+        // Add interactive hover effects for product cards
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-20px) rotateX(15deg) rotateY(10deg) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) rotateX(0deg) rotateY(0deg) scale(1)';
+            });
+        });
+
+        // Add click effects for buttons
+        document.querySelectorAll('.product-button').forEach(button => {
+            button.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 150);
+            });
+        });
+    </script>
+</body>
+</html>
