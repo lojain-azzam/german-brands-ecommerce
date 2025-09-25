@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="image/logo.JPG" alt="German Brands Logo" style="width: 120px; height: 120px; border-radius: 50%; margin-bottom: 20px; box-shadow: 0 8px 32px rgba(0,0,0,0.1);">
+
 # ✨ German Brands eCommerce Platform ✨
 ## 🇩🇪 *Where Authentic German Beauty Meets Digital Innovation* 🇩🇪
 
@@ -59,6 +61,23 @@
 </div>
 
 ---
+
+## 🏆 **Brand Showcase - Authentic German Heritage**
+
+<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 20px; color: white; margin: 30px 0; text-align: center;">
+  <div style="display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap;">
+    <img src="image/logo.JPG" alt="German Brands Logo" style="width: 80px; height: 80px; border-radius: 50%; border: 3px solid rgba(255,255,255,0.3);">
+    <div>
+      <h3 style="margin: 0; font-size: 28px; font-weight: 700;">German Brands</h3>
+      <p style="margin: 5px 0; font-size: 16px; opacity: 0.9;">Premium Beauty & Cosmetics</p>
+      <div style="margin-top: 10px;">
+        <span style="background: rgba(255,255,255,0.2); padding: 6px 12px; border-radius: 15px; font-size: 12px; margin: 0 5px;">🇩🇪 Made in Germany</span>
+        <span style="background: rgba(255,255,255,0.2); padding: 6px 12px; border-radius: 15px; font-size: 12px; margin: 0 5px;">🌿 Organic Certified</span>
+        <span style="background: rgba(255,255,255,0.2); padding: 6px 12px; border-radius: 15px; font-size: 12px; margin: 0 5px;">🌍 Global Shipping</span>
+      </div>
+    </div>
+  </div>
+</div>
 
 ## 🧩 **Feature Showcase - The German Brands Experience**
 
@@ -187,9 +206,7 @@ journey
 <!-- Product Card 1 -->
 <div style="border: 2px solid #e2e8f0; border-radius: 15px; padding: 20px; width: 280px; font-family: 'Inter', sans-serif; box-shadow: 0 8px 32px rgba(0,0,0,0.1); transition: all 0.3s ease; background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);">
   <div style="position: relative; display: inline-block; width: 100%;">
-    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 200px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 14px; margin-bottom: 15px;">
-      🌿 Weleda Skin Food
-    </div>
+    <img src="image/product1.png" alt="German Beauty Product 1" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px; margin-bottom: 15px;">
     <span style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%); color: white; font-size: 11px; padding: 6px 12px; border-radius: 20px; position: absolute; top: 12px; right: 12px; font-weight: bold; box-shadow: 0 4px 15px rgba(255,107,107,0.3);">
       🇩🇪 Made in Germany
     </span>
@@ -214,9 +231,7 @@ journey
 <!-- Product Card 2 -->
 <div style="border: 2px solid #e2e8f0; border-radius: 15px; padding: 20px; width: 280px; font-family: 'Inter', sans-serif; box-shadow: 0 8px 32px rgba(0,0,0,0.1); transition: all 0.3s ease; background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);">
   <div style="position: relative; display: inline-block; width: 100%;">
-    <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); height: 200px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #333; font-size: 14px; margin-bottom: 15px;">
-      🌱 Dr. Hauschka Rose
-    </div>
+    <img src="image/product2.png" alt="German Beauty Product 2" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px; margin-bottom: 15px;">
     <span style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%); color: white; font-size: 11px; padding: 6px 12px; border-radius: 20px; position: absolute; top: 12px; right: 12px; font-weight: bold; box-shadow: 0 4px 15px rgba(255,107,107,0.3);">
       🇩🇪 Made in Germany
     </span>
@@ -231,6 +246,31 @@ journey
     <div>
       <strong style="color: #0d6efd; font-size: 20px; font-weight: 700;">€24.50</strong>
       <div style="color: #10b981; font-size: 12px; font-weight: 600;">🌿 NATRUE Certified</div>
+    </div>
+    <button style="background: linear-gradient(135deg, #0d6efd 0%, #6610f2 100%); color: white; border: none; padding: 10px 20px; border-radius: 25px; cursor: pointer; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(13,110,253,0.3); transition: all 0.3s ease;">
+      🛒 Add to Cart
+    </button>
+  </div>
+</div>
+
+<!-- Product Card 3 -->
+<div style="border: 2px solid #e2e8f0; border-radius: 15px; padding: 20px; width: 280px; font-family: 'Inter', sans-serif; box-shadow: 0 8px 32px rgba(0,0,0,0.1); transition: all 0.3s ease; background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);">
+  <div style="position: relative; display: inline-block; width: 100%;">
+    <img src="image/product3.png" alt="German Beauty Product 3" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px; margin-bottom: 15px;">
+    <span style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%); color: white; font-size: 11px; padding: 6px 12px; border-radius: 20px; position: absolute; top: 12px; right: 12px; font-weight: bold; box-shadow: 0 4px 15px rgba(255,107,107,0.3);">
+      🇩🇪 Made in Germany
+    </span>
+  </div>
+  <h3 style="margin: 0 0 8px; font-size: 18px; font-weight: 700; color: #1e293b;">Lavera Natural Foundation</h3>
+  <p style="color: #64748b; font-size: 14px; margin: 0 0 10px;">Organic makeup base • 30ml</p>
+  <div style="display: flex; align-items: center; margin: 10px 0; color: #f59e0b;">
+    <span style="font-size: 16px;">★★★★★</span> 
+    <span style="color: #64748b; margin-left: 8px; font-size: 13px;">(156 reviews)</span>
+  </div>
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+    <div>
+      <strong style="color: #0d6efd; font-size: 20px; font-weight: 700;">€18.90</strong>
+      <div style="color: #10b981; font-size: 12px; font-weight: 600;">🌿 Vegan Certified</div>
     </div>
     <button style="background: linear-gradient(135deg, #0d6efd 0%, #6610f2 100%); color: white; border: none; padding: 10px 20px; border-radius: 25px; cursor: pointer; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(13,110,253,0.3); transition: all 0.3s ease;">
       🛒 Add to Cart
